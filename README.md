@@ -17,12 +17,6 @@ cd reward
 # start REST server
 ./gradlew run
 ```
-## Open API Spec
-Navigate to:
-```
-http://localhost:8080/swagger/reward-app-1.0.yml
-```
-
 
 ## Run Reward project
 In browser, nagivate to following urls to see the results
@@ -38,4 +32,10 @@ http://localhost:8080/rewards
 ### view points of a customer, with customerId = cust4
 ```
 http://localhost:8080/rewards/cust4
+```
+
+## Open API Spec
+Navigate to:
+```
+http://localhost:8080/swagger/reward-app-1.0.yml
 ```
