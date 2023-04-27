@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.example.model.Reward;
 import com.example.model.Transaction;
+import io.micronaut.context.env.Environment;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.client.HttpClient;
@@ -16,15 +17,15 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-@MicronautTest
-class befoRewardTest {
+@MicronautTest(environments = Environment.TEST)
+class RewardControllerTest {
   @Inject
   @Client("/")
   HttpClient client;
 
   @Test
   @DisplayName("test GET '/transactions' endpoint")
-  public void testTransactions(RequestSpecification spec) {
+  public void test_transactions(RequestSpecification spec) {
     String url = "/transactions";
     var request = HttpRequest.GET(url);
     var response = client.toBlocking().exchange(request, String.class);
@@ -38,7 +39,7 @@ class befoRewardTest {
 
   @Test
   @DisplayName("test GET '/rewards/{customerId}' endpoint")
-  public void testRewardWithCustomerId(RequestSpecification spec) {
+  public void test_rewardWithCustomerId(RequestSpecification spec) {
     String url = "/rewards/cust4";
     var request = HttpRequest.GET(url);
     var response = client.toBlocking().exchange(request, String.class);
